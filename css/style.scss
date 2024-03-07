@@ -1,0 +1,35 @@
+.banner{
+    min-height: 600px;
+    background-image: url('../img/parallax.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    background-attachment: fixed;
+}
+
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+h1{
+    color: blueviolet;
+    background-color: burlywood;
+}
+
+.header{
+    background-color: #720000; 
+    color: #fff; 
+    padding-left: 350px;
+    padding-right: 350px;
+    padding-top: 40px; 
+    padding-bottom: 40px;
+    border-radius: 5px; 
+    position: absolute;
+    top: 40px; 
+    left: 50%; 
+    transform: translateX(-50%);
+}
+
+.banner .header.img{
+    width: 5px;
+    height: auto;
+}
