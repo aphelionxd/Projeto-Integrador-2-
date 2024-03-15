@@ -43,15 +43,26 @@ body {
 .iconsbck {
     background-color: #9fe0c2;
     text-align: center;
+    padding-bottom: 60px;
 }
+
 
 .arvore-icon {
     border: none;
 }
 
-.figure-caption {
-    font-size: 30px;
-    border-bottom: 20px;
+.iso-icon {
+    width: 220px;
+    top: 100px;
+    height: auto;
+    border: none;
+}
+
+.figure-text {
+    top: -90px;
+    position: relative;
+    font-size: 25px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 .text1 {

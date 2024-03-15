@@ -107,7 +107,10 @@ body {
     z-index: 2;
 }
 
-.container.active.sign-in {}
+.container.active.sign-in {
+    transform: translateX(0);
+     opacity: 1;
+}
 
 .sign-up {
     transform: translateX(100%);
