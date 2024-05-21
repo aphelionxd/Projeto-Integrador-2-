@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
     <title>Greenspot</title>
     <link rel="stylesheet" href="../css/ingressos.css">
+    <style>
+        .custom-select-container {
+            height: 600px; /* Altura desejada */
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top">
@@ -32,307 +37,113 @@
             </div>
         </div>
     </nav>
-<br>
-<br>
-<br>
-    <div class="container mt-5 align-items-start">
-        <div class="row">
-            <div class="col-md-3 col-sm-6 mb-3">
-                <div class="card h-100">
-                    <img src="../img/trekking-forest.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Trilha 1</h5>
-                        <p class="card-text">R$ 50,00</p>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            Mais Informações
-                        </button>
-                    </div>
-                </div>
-                
-            </div>
-            <div class="col-md-3 col-sm-6 mb-3">
-                <div class="card h-100">
-                    <img src="../img/trilha2.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Trilha 2</h5>
-                        <p class="card-text">R$ 54,00</p>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                            Mais Informações
-                        </button>
-                    </div>
-                </div>
-                
-            </div>
-            <div class="col-md-3 col-sm-6 mb-3">
-                <div class="card h-100">
-                    <img src="../img/trilha3.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Trilha 3</h5>
-                        <p class="card-text">R$ 65,00</p>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3">
-                            Mais Informações
-                        </button>
-                    </div>
-                </div>
-                
-            </div>
-            <div class="col-md-3 col-sm-6 mb-3">
-                <div class="card h-100">
-                    <img src="../img/trilha4.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Trilha 4</h5>
-                        <p class="card-text">R$ 72,00</p>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal4">
-                            Mais Informações
-                        </button>
-                    </div>
-                </div>
-                
-            </div>
-            <div class="col-md-3 col-sm-6 mb-3">
-                <div class="card h-100">
-                    <img src="../img/trilha5.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Trilha 5</h5>
-                        <p class="card-text">R$ 85,00</p>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal5">
-                            Mais Informações
-                        </button>
-                    </div>
-                </div>
-                
-            </div>
-            <div class="col-md-3 col-sm-6 mb-3">
-                <div class="card h-100">
-                    <img src="../img/trilha6.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Trilha 6</h5>
-                        <p class="card-text">R$ 92,00</p>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal6">
-                            Mais Informações
-                        </button>
-                    </div>
-                </div>
-                
-            </div>
-            <div class="col-md-3 col-sm-6 mb-3">
-                <div class="card h-100">
-                    <img src="../img/trilha7.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Trilha 7</h5>
-                        <p class="card-text">R$ 110,00</p>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal7">
-                            Mais Informações
-                        </button>
-                    </div>
-                </div>
-                
-            </div>
-            <div class="col-md-3 col-sm-6 mb-3">
-                <div class="card h-100">
-                    <img src="../img/trilha8.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Trilha 8</h5>
-                        <p class="card-text">R$ 150,00</p>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal8">
-                            Mais Informações
-                        </button>
-                    </div>
-                </div>
-                
-            </div>
+    
+    <div id="aviso" class="aviso">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16">
+            <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+        </svg>
+        <span>selecione um tipo de Ingresso!</span>
+    </div>
+    
 
-            <!-- Adicione mais cards com as informações das demais trilhas -->
+    <div class="container-fluid d-flex justify-content-center align-items-center custom-select-container" style="display: flex; flex-direction: column;">
+        <div class="col-md-6" > 
+            <select class="form-select" aria-label="Default select example" style="background-color: #218838; font-family: 'Times New Roman', Times, serif; font-size: 30px; border: 2px solid black; text-transform: uppercase;" >
+                <option value="" disabled selected>Selecione uma opção</option>
+                <option value="2" >INTEIRA</option>
+                <option value="3">MEIA(PARA ESTUDANTES)</option>
+                <option value="4">INSENTO</option>
+
+            </select>
         </div>
+
+        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1" >
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Modal 1</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h3 class="text-center title-2">Pay Invoice</h3>
+                        </div>
+                        <hr>
+                        <form action="" method="post" novalidate="novalidate">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Payment amount</label>
+                                <input id="cc-pament" name="cc-payment" type="text" class="form-control" aria-required="true" aria-invalid="false" value="100.00">
+                            </div>
+                            <div class="form-group has-success">
+                                <label for="cc-name" class="control-label mb-1">Name on card</label>
+                                <input id="cc-name" name="cc-name" type="text" class="form-control cc-name valid" data-val="true" data-val-required="Please enter the name on card"
+                                    autocomplete="cc-name" aria-required="true" aria-invalid="false" aria-describedby="cc-name-error">
+                                <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="cc-number" class="control-label mb-1">Card number</label>
+                                <input id="cc-number" name="cc-number" type="tel" class="form-control cc-number identified visa" value="" data-val="true"
+                                    data-val-required="Please enter the card number" data-val-cc-number="Please enter a valid card number"
+                                    autocomplete="cc-number">
+                                <span class="help-block" data-valmsg-for="cc-number" data-valmsg-replace="true"></span>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="cc-exp" class="control-label mb-1">Expiration</label>
+                                        <input id="cc-exp" name="cc-exp" type="tel" class="form-control cc-exp" value="" data-val="true" data-val-required="Please enter the card expiration"
+                                            data-val-cc-exp="Please enter a valid month and year" placeholder="MM / YY"
+                                            autocomplete="cc-exp">
+                                        <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <label for="x_card_code" class="control-label mb-1">Security code</label>
+                                    <div class="input-group">
+                                        <input id="x_card_code" name="x_card_code" type="tel" class="form-control cc-cvc" value="" data-val="true" data-val-required="Please enter the security code"
+                                            data-val-cc-cvc="Please enter a valid security code" autocomplete="off">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
+                                    <i class="fa fa-lock fa-lg"></i>&nbsp;
+                                    <span id="payment-button-amount">Pay $100.00</span>
+                                    <span id="payment-button-sending" style="display:none;">Sending…</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Open second modal</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Modal 2</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  Hide this modal and show the first with the button below.
+                </div>
+                <div class="modal-footer">
+                  <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to first</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="botaomodal" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Prosseguir pagamento</button>
+
     </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Trilha 1</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <!-- Adicione as informações da trilha aqui -->
-                    <p>Descrição da trilha 1...</p>
-                    <p>Duração: 45 minutos</p>
-                    <p>Dificuldade: Baixa</p>
-                </div>
-                <div class="d-flex justify-content-center mt-3">
-                    <button type="button" class="btn btn-secondary me-3" style="margin-bottom: 10px;" data-bs-dismiss="modal">Fechar</button>
-                    <form action="../pagamento/pagamento.html" method="post">
-                        <input type="hidden" name="trilha_id" value="1">
-                        <button type="submit" class="btn btn-primary" style="margin-bottom: 10px;">Comprar</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Trilha 2</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <!-- Adicione as informações da trilha aqui -->
-                    <p>Descrição da trilha 2...</p>
-                    <p>Duração: 1 hora e 20minutos</p>
-                    <p>Dificuldade: Baixa</p>
-                </div>
-                <div class="d-flex justify-content-center mt-3">
-                    <button type="button" class="btn btn-secondary me-3" style="margin-bottom: 10px;" data-bs-dismiss="modal">Fechar</button>
-                    <form action="../pagamento/pagamento.html" method="post">
-                        <input type="hidden" name="trilha_id" value="1">
-                        <button type="submit" class="btn btn-primary" style="margin-bottom: 10px;">Comprar</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Trilha 3</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <!-- Adicione as informações da trilha aqui -->
-                    <p>Descrição da trilha 3...</p>
-                    <p>Duração: 2 horas</p>
-                    <p>Dificuldade: Média</p>
-                </div>
-                <div class="d-flex justify-content-center mt-3">
-                    <button type="button" class="btn btn-secondary me-3" style="margin-bottom: 10px;" data-bs-dismiss="modal">Fechar</button>
-                    <form action="../pagamento/pagamento.html" method="post">
-                        <input type="hidden" name="trilha_id" value="1">
-                        <button type="submit" class="btn btn-primary" style="margin-bottom: 10px;">Comprar</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Trilha 4</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <!-- Adicione as informações da trilha aqui -->
-                    <p>Descrição da trilha 4...</p>
-                    <p>Duração: 2 horas</p>
-                    <p>Dificuldade: Média</p>
-                </div>
-                <div class="d-flex justify-content-center mt-3">
-                    <button type="button" class="btn btn-secondary me-3" style="margin-bottom: 10px;" data-bs-dismiss="modal">Fechar</button>
-                    <form action="../pagamento/pagamento.html" method="post">
-                        <input type="hidden" name="trilha_id" value="1">
-                        <button type="submit" class="btn btn-primary" style="margin-bottom: 10px;">Comprar</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Trilha 5</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <!-- Adicione as informações da trilha aqui -->
-                    <p>Descrição da trilha 5...</p>
-                    <p>Duração: 3 horas e meia</p>
-                    <p>Dificuldade: Alta</p>
-                </div>
-                <div class="d-flex justify-content-center mt-3">
-                    <button type="button" class="btn btn-secondary me-3" style="margin-bottom: 10px;" data-bs-dismiss="modal">Fechar</button>
-                    <form action="../pagamento/pagamento.html" method="post">
-                        <input type="hidden" name="trilha_id" value="1">
-                        <button type="submit" class="btn btn-primary" style="margin-bottom: 10px;">Comprar</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="exampleModal6" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Trilha 6</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <!-- Adicione as informações da trilha aqui -->
-                    <p>Descrição da trilha 6...</p>
-                    <p>Duração: 4 horas</p>
-                    <p>Dificuldade: Alta</p>
-                </div>
-                <div class="d-flex justify-content-center mt-3">
-                    <button type="button" class="btn btn-secondary me-3" style="margin-bottom: 10px;" data-bs-dismiss="modal">Fechar</button>
-                    <form action="../pagamento/pagamento.html" method="post">
-                        <input type="hidden" name="trilha_id" value="1">
-                        <button type="submit" class="btn btn-primary" style="margin-bottom: 10px;">Comprar</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="exampleModal7" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Trilha 6</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <!-- Adicione as informações da trilha aqui -->
-                    <p>Descrição da trilha 7...</p>
-                    <p>Duração: 4 horas</p>
-                    <p>Dificuldade: Alta</p>
-                </div>
-                <div class="d-flex justify-content-center mt-3">
-                    <button type="button" class="btn btn-secondary me-3" style="margin-bottom: 10px;" data-bs-dismiss="modal">Fechar</button>
-                    <form action="../pagamento/pagamento.html" method="post">
-                        <input type="hidden" name="trilha_id" value="1">
-                        <button type="submit" class="btn btn-primary" style="margin-bottom: 10px;">Comprar</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="exampleModal8" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Trilha 6</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <!-- Adicione as informações da trilha aqui -->
-                    <p>Descrição da trilha 8...</p>
-                    <p>Duração: 4 horas</p>
-                    <p>Dificuldade: Alta</p>
-                </div>
-                <div class="d-flex justify-content-center mt-3">
-                    <button type="button" class="btn btn-secondary me-3" style="margin-bottom: 10px;" data-bs-dismiss="modal">Fechar</button>
-                    <form action="../pagamento/pagamento.html" method="post">
-                        <input type="hidden" name="trilha_id" value="1">
-                        <button type="submit" class="btn btn-primary" style="margin-bottom: 10px;">Comprar</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <footer class="bg-success text-white py-3">
+    <footer class="bg-success text-white py-3 mt-auto">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-8 mx-auto">
@@ -346,21 +157,22 @@
                 </div>
             </div>
             <div class="row text-center">
-              <div class="col-md-12">
-                  <div class="mt-5">
-                      <a href="#" class="text-white mr-3 float-md-right"><i class="fab fa-facebook-f fa-2x"></i></a>
-                      <a href="#" class="text-white mr-3 float-md-right"><i class="fab fa-instagram fa-2x"></i></a>
-                      <a href="https://wa.me/1234567890" class="text-white float-md-right"><i class="fab fa-whatsapp fa-2x"></i></a>
-                  </div>
-              </div>
-          </div>
-      </div>
+                <div class="col-md-12">
+                    <div class="mt-5">
+                        <a href="#" class="text-white mr-3 float-md-right"><i class="fab fa-facebook-f fa-2x"></i></a>
+                        <a href="#" class="text-white mr-3 float-md-right"><i class="fab fa-instagram fa-2x"></i></a>
+                        <a href="https://wa.me/1234567890" class="text-white float-md-right"><i class="fab fa-whatsapp fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
             <div class="row text-center">
                 <div class="col-md-12">
                     <p>&copy; 2022 Greenspot. Todos direitos reservados.</p>
                 </div>
             </div>
-      </footer>
+        </div>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
 </body>

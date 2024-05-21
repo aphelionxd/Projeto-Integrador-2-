@@ -3,3 +3,25 @@ body {
   background-size: cover;
   background-position: center;
 }
+.custom-select-container {
+  height: 800px; /* Altura desejada */
+}
+
+.aviso {
+  position: fixed;
+  top: 60px;
+  left: 20px;
+  background-color: #86b0e7; /* Cor de fundo */
+  color: #333; /* Cor do texto */
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra */
+}
+
+.botaomodal {
+  margin-top: 50px;
+  border: none;
+  height: 80px;
+  width: 200px;
+  border-radius: 0px 10px;
+}

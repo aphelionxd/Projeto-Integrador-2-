@@ -1,5 +1,6 @@
 body {
     background-color: #7acfa7;
+    overflow-x: hidden;
 }
 
 #home {
@@ -63,6 +64,41 @@ body {
     position: relative;
     font-size: 25px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.botaoanuncio{
+    background-color: #9fe0c2;
+    padding: 60px;
+}
+
+.botaotext{
+    padding: 30px;
+    border: none;
+    border-radius: 10px 0px;
+    animation: pulse 1s infinite alternate;
+    box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes pulse {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.1);
+    }
+  }
+
+.botaotext:hover {
+    background-color: #218838; /* Cor mais escura ao passar o mouse */
+    color: white;
+  }
+
+.venhatext{
+    color: #7acfa7;
+}
+
+.venhatext:hover {
+    color: white;
 }
 
 .text1 {
