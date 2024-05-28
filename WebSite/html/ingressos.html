@@ -58,7 +58,7 @@
     <!-- Container com seleção de ingresso -->
     <div class="container-fluid d-flex justify-content-center align-items-center custom-select-container" style="display: flex; flex-direction: column;">
         <div class="col-md-6" > 
-            <select id="tipoIngresso" class="form-select" aria-label="Default select example" style="background-color: #218838; font-family: 'Times New Roman', Times, serif; font-size: 30px; border: 2px solid black; text-transform: uppercase;">
+            <select id="tipoIngresso" class="form-select" aria-label="Default select example" style="background-color: #c2c2c2; font-family: 'Times New Roman', Times, serif; font-size: 30px; border: 2px solid black; text-transform: uppercase; opacity: 80%;">
                 <option value="" disabled selected>Selecione uma opção</option>
                 <option value="100">INTEIRA</option>
                 <option value="50">MEIA (PARA ESTUDANTES)</option>
@@ -66,23 +66,6 @@
             </select>
         </div>
         <div class="col-md-6" id="valorIngresso">Valor do Ingresso: --</div>
-
-        <!-- Modal de Ingresso Virtual -->
-        <div class="modal fade" id="modalIngressoVirtual" tabindex="-1" aria-labelledby="modalIngressoVirtualLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalIngressoVirtualLabel">Ingresso Virtual</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body text-center">
-                        <p>Seu ingresso virtual com código de barras está pronto.</p>
-                        <p>Clique no botão abaixo para fazer o download do seu ingresso em formato PDF.</p>
-                        <a href="#" class="btn btn-primary">Download Ingresso</a>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <div class="modal fade" id="exampleModalToggle" tabindex="-1" aria-labelledby="exampleModalToggleLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -92,57 +75,65 @@
                     </div>
                     <div class="modal-body">
                         <div class="card-body">
-                            <div class="card-title">
-                                <h3 class="text-center title-2">Adquira seu Ingresso!</h3>
+                          <div class="card-title">
+                            <h3 class="text-center title-2">Adquira seu Ingresso!</h3>
+                          </div>
+                          <hr>
+                          <div id="loading-screen" style="display: none; text-align: center;">
+                            <div class="loading-animation">
+                                <img src="https://loading.io/asset/741432" alt="Loading...">
+                              </div>
+                          </div>
+                          <form action="" method="post" novalidate="novalidate">
+                            <div class="form-group">
+                              <label for="cc-payment" class="control-label mb-1">Valor a Pagar</label>
+                              <input id="cc-payment" name="cc-payment" type="text" class="form-control" aria-required="true" aria-invalid="false" placeholder="Pagar $100.00" readonly>
                             </div>
-                            <hr>
-                            <form action="" method="post" novalidate="novalidate">
+                            <div class="form-group has-success">
+                              <label for="cc-name" class="control-label mb-1">Nome no Cartão</label>
+                              <input id="cc-name" name="cc-name" type="text" class="form-control cc-name valid" data-val="true" data-val-required="Por favor, insira o nome no cartão"
+                                  autocomplete="cc-name" aria-required="true" aria-invalid="false" aria-describedby="cc-name-error">
+                              <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
+                            </div>
+                            <div class="form-group">
+                              <label for="cc-number" class="control-label mb-1">Número do Cartão</label>
+                              <input id="cc-number" name="cc-number" type="tel" class="form-control cc-number identified visa" value="" data-val="true"
+                                  data-val-required="Por favor, insira o número do cartão" data-val-cc-number="Por favor, insira um número de cartão válido"
+                                  autocomplete="cc-number">
+                              <span class="help-block" data-valmsg-for="cc-number" data-valmsg-replace="true"></span>
+                            </div>
+                            <div class="row">
+                              <div class="col-6">
                                 <div class="form-group">
-                                    <label for="cc-payment" class="control-label mb-1">Valor a Pagar</label>
-                                    <input id="cc-payment" name="cc-payment" type="text" class="form-control" aria-required="true" aria-invalid="false" placeholder="Pagar $100.00" readonly>
+                                  <label for="cc-exp" class="control-label mb-1">Expira</label>
+                                  <input id="cc-exp" name="cc-exp" type="tel" class="form-control cc-exp" value="" data-val="true" data-val-required="Por favor, insira a data de expiração do cartão"
+                                      data-val-cc-exp="Por favor, insira uma data de expiração válida" placeholder="MM / YY"
+                                      autocomplete="cc-exp">
+                                  <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
                                 </div>
-                                <div class="form-group has-success">
-                                    <label for="cc-name" class="control-label mb-1">Nome no Cartão</label>
-                                    <input id="cc-name" name="cc-name" type="text" class="form-control cc-name valid" data-val="true" data-val-required="Please enter the name on card"
-                                        autocomplete="cc-name" aria-required="true" aria-invalid="false" aria-describedby="cc-name-error">
-                                    <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
+                              </div>
+                              <div class="col-6">
+                                <label for="x_card_code" class="control-label mb-1">CVC</label>
+                                <div class="input-group">
+                                  <input id="x_card_code" name="x_card_code" type="tel" class="form-control cc-cvc" value="" data-val="true" data-val-required="Por favor, insira o código de segurança"
+                                      data-val-cc-cvc="Por favor, insira um código de segurança válido" autocomplete="off">
                                 </div>
-                                <div class="form-group">
-                                    <label for="cc-number" class="control-label mb-1">Número do Cartão</label>
-                                    <input id="cc-number" name="cc-number" type="tel" class="form-control cc-number identified visa" value="" data-val="true"
-                                        data-val-required="Please enter the card number" data-val-cc-number="Please enter a valid card number"
-                                        autocomplete="cc-number">
-                                    <span class="help-block" data-valmsg-for="cc-number" data-valmsg-replace="true"></span>
-                                </div>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="form-group">
-                                            <label for="cc-exp" class="control-label mb-1">Expira</label>
-                                            <input id="cc-exp" name="cc-exp" type="tel" class="form-control cc-exp" value="" data-val="true" data-val-required="Please enter the card expiration"
-                                                data-val-cc-exp="Please enter a valid month and year" placeholder="MM / YY"
-                                                autocomplete="cc-exp">
-                                            <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <label for="x_card_code" class="control-label mb-1">CVC</label>
-                                        <div class="input-group">
-                                            <input id="x_card_code" name="x_card_code" type="tel" class="form-control cc-cvc" value="" data-val="true" data-val-required="Please enter the security code"
-                                                data-val-cc-cvc="Please enter a valid security code" autocomplete="off">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="buttonconfirm" style="justify-content: center; align-items: center; text-align: center;">
-                                    <button id="payment-button" type="button" class="btn btn-lg btn-info btn-block" style="margin-top: 13px; border-bottom: 20px;" onclick="prosseguirPagamento()">
-                                        <i class="fa fa-lock fa-lg"></i>&nbsp;
-                                        <span id="payment-button-amount">Pagar $100.00</span>
-                                        <span id="payment-button-sending" style="display:none;">Confirmando…</span>
-                                    </button>
-                                </div>
-                                <img class="Bannercredito" style="height: 180px; width: 400px; display: flex; flex-direction:column; text-align: center; margin-top: 20px;" src="../img/credit-card.svg" alt="">
-                            </form>
+                              </div>
+                            </div>
+                            <div class="buttonconfirm" style="justify-content: center; align-items: center; text-align: center;">
+                              <button id="payment-button" type="button" class="btn btn-lg btn-info btn-block" style="margin-top: 13px; border-bottom: 20px;" onclick="prossegueirPagamento()">
+                                <i class="fa fa-lock fa-lg"></i>&nbsp;
+                                <span id="payment-button-amount">Pagar $100.00</span>
+                                <span id="payment-button-sending" style="display:none;">Confirmando…</span>
+                              </button>
+                            </div>
+                          </form>
+                          <!-- Símbolo de confirmação de pagamento -->
+                          <div id="pagamentoConcluido" style="display: none;" class="alert alert-success" role="alert">
+                            Pagamento Confirmado!
+                          </div>
                         </div>
-                    </div>
+                      </div>
                     
                   </div>
                 </div>
@@ -154,10 +145,7 @@
 </div>
 </div>
 
-<!-- Símbolo de confirmação de pagamento -->
-<div id="pagamentoConcluido" class="alert alert-success" role="alert">
-Pagamento Confirmado!
-</div>
+
 
 <!-- Rodapé -->
 <footer class="bg-success text-white py-3 mt-auto">
@@ -194,66 +182,5 @@ Pagamento Confirmado!
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
 <script src="../js/ingressos.js"></script>
-<script>
-// Função para atualizar o valor do ingresso com base na seleção do tipo
-function atualizarValor() {
-    var select = document.getElementById("tipoIngresso");
-    var valorIngresso = document.getElementById("valorIngresso");
-    var valorSelecionado = select.options[select.selectedIndex].value;
-
-    if (valorSelecionado === "") {
-        valorIngresso.textContent = "Valor do Ingresso: --";
-    } else {
-        valorIngresso.textContent = "Valor do Ingresso: $" + valorSelecionado + ".00";
-    }
-}
-
-// Função para lidar com o pagamento e confirmar a transação
-function prosseguirPagamento() {
-    var select = document.getElementById("tipoIngresso");
-    var valorSelecionado = select.options[select.selectedIndex].value;
-    var valorPagar = parseFloat(valorSelecionado);
-
-    if (valorSelecionado === "") {
-        // Exibir aviso se nenhum tipo de ingresso foi selecionado
-        document.getElementById("aviso").style.display = "block";
-    } else {
-        // Ocultar aviso se um tipo de ingresso foi selecionado
-        document.getElementById("aviso").style.display = "none";
-
-        // Atualizar o valor a pagar no formulário de pagamento
-        document.getElementById("cc-payment").value = "Pagar $" + valorPagar.toFixed(2);
-
-        // Simular confirmação de pagamento após 3 segundos
-        setTimeout(function() {
-            // Exibir mensagem de confirmação de pagamento
-            document.getElementById("pagamentoConcluido").style.display = "block";
-
-            // Ocultar modal de pagamento após 1 segundo
-            setTimeout(function() {
-                var modal = new bootstrap.Modal(document.getElementById('exampleModalToggle'), {});
-                modal.hide();
-            }, 1000);
-        }, 3000);
-    }
-}
-
-// Event listener para atualizar o valor do ingresso quando a seleção mudar
-document.getElementById("tipoIngresso").addEventListener("change", atualizarValor);
-
-// Event listener para o botão "Prosseguir pagamento"
-document.querySelector(".botaomodal").addEventListener("click", prosseguirPagamento);
-
-// Event listener para o botão "Gerar Ingresso" no modal de pagamento
-document.querySelector("#exampleModalToggle .modal-footer button").addEventListener("click", function() {
-    // Ocultar o modal de pagamento
-    var modal = new bootstrap.Modal(document.getElementById('exampleModalToggle'), {});
-    modal.hide();
-
-    // Exibir o modal de ingresso virtual
-    var ingressoVirtualModal = new bootstrap.Modal(document.getElementById('modalIngressoVirtual'), {});
-    ingressoVirtualModal.show();
-});
-</script>
 </body>
 </html>
