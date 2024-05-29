@@ -93,3 +93,7 @@ function mostrarLoading() {
     `;
     document.getElementById("loading-screen").style.display = "block";
   }
+
+  $('#exampleModalToggle').modal('hide');
+
+  
