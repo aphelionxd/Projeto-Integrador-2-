@@ -20,13 +20,13 @@ body {
 
 .botaomodal {
   margin-top: 50px;
-  border: 2px solid green;
   height: 80px;
   width: 200px;
   border-radius: 10px;
   text-transform: uppercase;
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  
+  border: none;
+  box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.2);
 }
 
 .botaomodal:hover{
