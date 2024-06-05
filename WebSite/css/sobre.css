@@ -1,5 +1,29 @@
 body {
-    background-color: #7acfa7;
+    background-image: url('../img/back-leaf.jpg');
 }
 
+.navbar-brand {
+    display: flex;
+    align-items: center;
+  }
 
+  .navbar-brand img {
+    width: 40px;  /* Ajuste conforme necessário */
+    height: 40px; /* Ajuste conforme necessário */
+    margin-left: 8px;
+  }
+
+.container{
+    color: white;
+}
+
+.map-container{
+    background-color: rgb(125, 226, 130);
+    padding: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px 0px;
+    align-items: center;
+    justify-content: center;
+}

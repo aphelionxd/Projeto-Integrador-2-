@@ -3,6 +3,17 @@ body {
   background-size: cover;
   background-position: center;
 }
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand img {
+  width: 40px;  /* Ajuste conforme necessário */
+  height: 40px; /* Ajuste conforme necessário */
+  margin-left: 8px;
+}
+
 .custom-select-container {
   height: 800px; /* Altura desejada */
 }
