@@ -23,3 +23,20 @@ $(document).ready(function() {
       });
     });
   });
+
+  //botão rolar para cima
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+    if (document.body.scrollTop > window.innerHeight / 2 || document.documentElement.scrollTop > window.innerHeight / 2) {
+      document.getElementById("btnTopo").style.display = "block";
+    } else {
+      document.getElementById("btnTopo").style.display = "none";
+    }
+  }
+
+  // Função para rolar suavemente para o topo
+  function topFunction() {
+    document.body.scrollTop = 0; // Para navegadores da web
+    document.documentElement.scrollTop = 0; // Para Safari, Chrome, Firefox, IE e Opera
+  }

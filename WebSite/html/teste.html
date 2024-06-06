@@ -3,49 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scroll Animation Example</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>Botão Fixo de Volta ao Topo</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
-    .invisible {
-      opacity: 0;
+    /* Estilizando o botão */
+    #btnTopo {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 99;
     }
   </style>
 </head>
 <body>
 
-  <div class="container mt-5">
-    <div class="row">
-      <div class="col-12 mb-4">
-        <h2 class="animate__animated invisible" data-animation="animate__fadeInLeft">Section 1</h2>
-        <p class="animate__animated invisible" data-animation="animate__fadeInLeft">Content for section 1...</p>
-      </div>
-      <div class="col-12 mb-4">
-        <h2 class="animate__animated invisible" data-animation="animate__fadeInRight">Section 2</h2>
-        <p class="animate__animated invisible" data-animation="animate__fadeInRight">Content for section 2...</p>
-      </div>
-      <div class="col-12 mb-4">
-        <h2 class="animate__animated invisible" data-animation="animate__fadeInLeft">Section 3</h2>
-        <p class="animate__animated invisible" data-animation="animate__fadeInLeft">Content for section 3...</p>
-      </div>
-    </div>
-  </div>
+<div class="container">
+  <!-- Conteúdo da página -->
+  <h1>Conteúdo da Página</h1>
+  <p>Scrolle para baixo para ver o botão de volta ao topo aparecer!</p>
+  <!-- Simulação de conteúdo suficiente para fazer scroll -->
+  <div style="height: 1500px;"></div>
+</div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
-  <script>
-    $(document).ready(function() {
-      $('.animate__animated').each(function() {
-        var element = $(this);
-        var animation = element.data('animation');
-        element.waypoint(function() {
-          element.addClass(animation);
-          element.removeClass('invisible');
-        }, { offset: '75%' });
-      });
-    });
-  </script>
+<!-- Botão de volta ao topo -->
+<button id="btnTopo" class="btn btn-primary" onclick="topFunction()" title="Voltar ao Topo">Topo</button>
+
+<script>
+  // Função para mostrar/esconder o botão de volta ao topo
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+    if (document.body.scrollTop > window.innerHeight / 2 || document.documentElement.scrollTop > window.innerHeight / 2) {
+      document.getElementById("btnTopo").style.display = "block";
+    } else {
+      document.getElementById("btnTopo").style.display = "none";
+    }
+  }
+
+  // Função para rolar suavemente para o topo
+  function topFunction() {
+    document.body.scrollTop = 0; // Para navegadores da web
+    document.documentElement.scrollTop = 0; // Para Safari, Chrome, Firefox, IE e Opera
+  }
+</script>
 
 </body>
 </html>

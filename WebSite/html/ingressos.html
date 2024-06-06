@@ -7,18 +7,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
     <title>Greenspot</title>
     <link rel="stylesheet" href="../css/ingressos.css">
-  
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="./index.html">
-        Greenspot
-        <img src="../img/passaro.svg" alt="Passaro">
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="./index.html">
+                Greenspot
+                <img src="../img/passaro.svg" alt="Passaro">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
@@ -37,131 +37,126 @@
 
     <!-- Container com seleção de ingresso -->
     <div class="container-fluid d-flex justify-content-center align-items-center custom-select-container" style="display: flex; flex-direction: column;">
-        <div class="col-md-6" > 
+        <div class="col-md-6"> 
             <select id="tipoIngresso" class="form-select" aria-label="Default select example" style="background-color: #c2c2c2; font-family: 'Courier New', Courier, monospace; font-size: 30px; text-transform: uppercase; opacity: 80%; box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.2); text-align: center;">
                 <option value="" disabled selected>Selecione uma opção</option>
                 <option value="100">INTEIRA</option>
                 <option value="50">MEIA (PARA ESTUDANTES)</option>
-                <option value="0">INSENTO</option>
+                <option value="0">ISENTO</option>
             </select>
         </div>
 
         <div class="col-md-6" style="color: black; text-transform: uppercase; background-color: #c2c2c2; opacity: 60%; border-radius: 20px; text-align: center; margin-top: 10px; box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.2);" id="valorIngresso">Valor do Ingresso: --</div>
 
+        
+        
         <div class="modal fade" id="exampleModalToggle" tabindex="-1" aria-labelledby="exampleModalToggleLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     <div class="modal-body">
                         <div class="card-body">
-                          <div class="card-title">
-                            <h3 class="text-center title-2">Adquira seu Ingresso!</h3>
-                          </div>
-                          <hr>
-                          <div id="loading-screen" style="display: none; text-align: center;">
-                            <div class="loading-animation">
-                                <img src="https://loading.io/asset/741432" alt="Loading...">
-                              </div>
-                          </div>
-                          <form action="" method="post" novalidate="novalidate">
-                            <div class="form-group">
-                              <label for="cc-payment" class="control-label mb-1">Valor a Pagar</label>
-                              <input id="cc-payment" name="cc-payment" type="text" class="form-control" aria-required="true" aria-invalid="false" placeholder="Pagar $100.00" readonly>
+                            <div class="card-title">
+                                <h3 class="text-center title-2">Adquira seu Ingresso!</h3>
                             </div>
-                            <div class="form-group has-success">
-                              <label for="cc-name" class="control-label mb-1">Nome no Cartão</label>
-                              <input id="cc-name" name="cc-name" type="text" class="form-control cc-name valid" data-val="true" data-val-required="Por favor, insira o nome no cartão"
-                                  autocomplete="cc-name" aria-required="true" aria-invalid="false" aria-describedby="cc-name-error">
-                              <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
+                            <hr>
+                            <div id="loading-screen" style="display: none; text-align: center;">
+                                <div class="loading-animation">
+                                    <img src="https://loading.io/asset/741432" alt="Loading...">
+                                </div>
                             </div>
-                            <div class="form-group">
-                              <label for="cc-number" class="control-label mb-1">Número do Cartão</label>
-                              <input id="cc-number" name="cc-number" type="tel" class="form-control cc-number identified visa" value="" data-val="true"
-                                  data-val-required="Por favor, insira o número do cartão" data-val-cc-number="Por favor, insira um número de cartão válido"
-                                  autocomplete="cc-number">
-                              <span class="help-block" data-valmsg-for="cc-number" data-valmsg-replace="true"></span>
-                            </div>
-                            <div class="row">
-                              <div class="col-6">
+                            <form action="" method="post" novalidate="novalidate">
                                 <div class="form-group">
-                                  <label for="cc-exp" class="control-label mb-1">Expira</label>
-                                  <input id="cc-exp" name="cc-exp" type="tel" class="form-control cc-exp" value="" data-val="true" data-val-required="Por favor, insira a data de expiração do cartão"
-                                      data-val-cc-exp="Por favor, insira uma data de expiração válida" placeholder="MM / YY"
-                                      autocomplete="cc-exp">
-                                  <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
+                                    <label for="cc-payment" class="control-label mb-1">Valor a Pagar</label>
+                                    <input id="cc-payment" name="cc-payment" type="text" class="form-control" aria-required="true" aria-invalid="false" placeholder="Pagar $100.00" readonly>
                                 </div>
-                              </div>
-                              <div class="col-6">
-                                <label for="x_card_code" class="control-label mb-1">CVC</label>
-                                <div class="input-group">
-                                  <input id="x_card_code" name="x_card_code" type="tel" class="form-control cc-cvc" value="" data-val="true" data-val-required="Por favor, insira o código de segurança"
-                                      data-val-cc-cvc="Por favor, insira um código de segurança válido" autocomplete="off">
+                                <div class="form-group has-success">
+                                    <label for="cc-name" class="control-label mb-1">Nome no Cartão</label>
+                                    <input id="cc-name" name="cc-name" type="text" class="form-control cc-name valid" data-val="true" data-val-required="Por favor, insira o nome no cartão" autocomplete="cc-name" aria-required="true" aria-invalid="false" aria-describedby="cc-name-error">
+                                    <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
                                 </div>
-                              </div>
+                                <div class="form-group">
+                                    <label for="cc-number" class="control-label mb-1">Número do Cartão</label>
+                                    <input id="cc-number" name="cc-number" type="tel" class="form-control cc-number identified visa" value="" data-val="true" data-val-required="Por favor, insira o número do cartão" data-val-cc-number="Por favor, insira um número de cartão válido" autocomplete="cc-number">
+                                    <span class="help-block" data-valmsg-for="cc-number" data-valmsg-replace="true"></span>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="cc-exp" class="control-label mb-1">Expira</label>
+                                            <input id="cc-exp" name="cc-exp" type="tel" class="form-control cc-exp" value="" data-val="true" data-val-required="Por favor, insira a data de expiração do cartão" data-val-cc-exp="Por favor, insira uma data de expiração válida" placeholder="MM / YY" autocomplete="cc-exp">
+                                            <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="x_card_code" class="control-label mb-1">CVC</label>
+                                        <div class="input-group">
+                                            <input id="x_card_code" name="x_card_code" type="tel" class="form-control cc-cvc" value="" data-val="true" data-val-required="Por favor, insira o código de segurança" data-val-cc-cvc="Por favor, insira um código de segurança válido" autocomplete="off">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="buttonconfirm" style="justify-content: center; align-items: center; text-align: center;">
+                                    <button id="payment-button" type="button" class="btn btn-lg btn-info btn-block" style="margin-top: 13px; border-bottom: 20px;" onclick="prossegueirPagamento()">
+                                        <i class="fa fa-lock fa-lg"></i>&nbsp;
+                                        <span id="payment-button-amount">Pagar $100.00</span>
+                                        <span id="payment-button-sending" style="display:none;">Confirmando…</span>
+                                    </button>
+                                </div>
+                            </form>
+                            <!-- Símbolo de confirmação de pagamento -->
+                            <div id="pagamentoConcluido" style="display: none;" class="alert alert-success" role="alert">
+                                Pagamento Confirmado!
                             </div>
-                            <div class="buttonconfirm" style="justify-content: center; align-items: center; text-align: center;">
-                              <button id="payment-button" type="button" class="btn btn-lg btn-info btn-block" style="margin-top: 13px; border-bottom: 20px;" onclick="prossegueirPagamento()">
-                                <i class="fa fa-lock fa-lg"></i>&nbsp;
-                                <span id="payment-button-amount">Pagar $100.00</span>
-                                <span id="payment-button-sending" style="display:none;">Confirmando…</span>
-                              </button>
-                            </div>
-                          </form>
-                          <!-- Símbolo de confirmação de pagamento -->
-                          <div id="pagamentoConcluido" style="display: none;" class="alert alert-success" role="alert">
-                            Pagamento Confirmado!
-                          </div>
                         </div>
-                      </div>
-                    
-                  </div>
+                    </div>
                 </div>
-              </div>
-            
-              <button class="botaomodal" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Prosseguir pagamento</button>
-
-    </div>
-
-  
-
-</div>
-
-
-
-<!-- Rodapé -->
-<footer class="bg-success text-white py-3 mt-auto">
-<div class="container">
-    <div class="row">
-        <div class="col-lg-6 col-md-8 mx-auto">
-            <h3>Fique por dentro das novidades!</h3>
-            <form>
-                <div class="form-group mb-3">
-                    <input type="email" class="form-control" placeholder="Insira seu email">
-                </div>
-                <button type="submit" class="btn btn-light">Inscrever-se</button>
-            </form>
-        </div>
-    </div>
-    <div class="row text-center">
-        <div class="col-md-12">
-            <div class="mt-5">
-                <a href="#" class="text-white mr-3 float-md-right"><i class="fab fa-facebook-f fa-2x"></i></a>
-                <a href="#" class="text-white mr-3 float-md-right"><i class="fab fa-instagram fa-2x"></i></a>
-                <a href="https://wa.me/1234567890" class="text-white float-md-right"><i class="fab fa-whatsapp fa-2x"></i></a>
             </div>
         </div>
-    </div>
-    <div class="row text-center">
-        <div class="col-md-12">
-            <p>&copy; 2022 Greenspot. Todos direitos reservados.</p>
+        <button class="botaomodal" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Prosseguir pagamento</button>
+
+        <!-- Seção para mostrar os detalhes do pagamento -->
+        <div id="detalhesPagamento" style="margin-top: 100px; color: black; text-transform: uppercase; background-color: #c2c2c2; opacity: 95%; border-radius: 20px; text-align: center; box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.2); padding: 10px;">
+            <h4>Carrinho de ingressos</h4>
         </div>
     </div>
-</div>
-</footer>
 
-<!-- Scripts JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
-<script src="../js/ingressos.js"></script>
+    <br>
+    
+
+    <!-- Rodapé -->
+    <footer class="bg-success text-white py-3 mt-auto">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <h3>Fique por dentro das novidades!</h3>
+                    <form>
+                        <div class="form-group mb-3">
+                            <input type="email" class="form-control" placeholder="Insira seu email">
+                        </div>
+                        <button type="submit" class="btn btn-light">Inscrever-se</button>
+                    </form>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-12">
+                    <div class="mt-5">
+                        <a href="#" class="text-white mr-3 float-md-right"><i class="fab fa-facebook-f fa-2x"></i></a>
+                        <a href="#" class="text-white mr-3 float-md-right"><i class="fab fa-instagram fa-2x"></i></a>
+                        <a href="https://wa.me/1234567890" class="text-white float-md-right"><i class="fab fa-whatsapp fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-12">
+                    <p>&copy; 2022 Greenspot. Todos direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <script src="../js/ingressos.js"></script>
 </body>
 </html>

@@ -60,8 +60,65 @@ function confirmarPagamento() {
         setTimeout(function() {
             var modal = new bootstrap.Modal(document.getElementById('exampleModalToggle'), {});
             modal.hide();
+
+            // Adicionar os detalhes do pagamento na seção abaixo da escolha de ingressos
+            adicionarDetalhesPagamento();
         }, 1000);
     }, 3000); // Simulação de 3 segundos de processamento
+}
+
+// Função para adicionar os detalhes do pagamento na seção abaixo da escolha de ingressos
+function adicionarDetalhesPagamento() {
+    var nomeNoCartao = document.getElementById("cc-name").value;
+    var select = document.getElementById("tipoIngresso");
+    var tipoIngresso = select.options[select.selectedIndex].text;
+    var dataHora = new Date().toLocaleString();
+    var detalhesPagamento = document.getElementById("detalhesPagamento");
+
+    var compraId = `compra-${Date.now()}`; // Gera um ID único para cada compra
+
+    var novoDetalhe = document.createElement("div");
+    novoDetalhe.id = compraId;
+    novoDetalhe.innerHTML = `
+        <p>Ingresso ${tipoIngresso} comprado por ${nomeNoCartao} em ${dataHora}</p>
+        <button class="btn btn-info" onclick="visualizarCodigoBarra('${compraId}')">Visualizar Código de Barras</button>
+        <button class="btn btn-danger" onclick="confirmarCancelamentoCompra('${compraId}')">Cancelar Compra</button>
+        <div id="codigo-barra-${compraId}" style="display: none;">
+            <svg id="barcode-${compraId}"></svg>
+        </div>
+    `;
+    detalhesPagamento.appendChild(novoDetalhe);
+
+    // Gerar o código de barras
+    JsBarcode(`#barcode-${compraId}`, compraId, {
+        format: "CODE128",
+        displayValue: true,
+        fontSize: 20
+    });
+}
+
+// Função para visualizar o código de barras
+function visualizarCodigoBarra(compraId) {
+    var codigoBarra = document.getElementById(`codigo-barra-${compraId}`);
+    if (codigoBarra.style.display === "none") {
+        codigoBarra.style.display = "block";
+    } else {
+        codigoBarra.style.display = "none";
+    }
+}
+
+// Função para confirmar o cancelamento da compra
+function confirmarCancelamentoCompra(compraId) {
+    var confirmacao = confirm("Você tem certeza que deseja cancelar a compra?");
+    if (confirmacao) {
+        cancelarCompra(compraId);
+    }
+}
+
+// Função para cancelar a compra
+function cancelarCompra(compraId) {
+    var compra = document.getElementById(compraId);
+    compra.remove();
 }
 
 // Event listener para atualizar o valor do ingresso quando a seleção mudar
@@ -92,8 +149,6 @@ function mostrarLoading() {
       <p>Processando pagamento...</p>
     `;
     document.getElementById("loading-screen").style.display = "block";
-  }
+}
 
-  $('#exampleModalToggle').modal('hide');
-
-  
+$('#exampleModalToggle').modal('hide');
