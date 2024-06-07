@@ -37,7 +37,7 @@
 
     <!-- Container com seleção de ingresso -->
     <div class="container-fluid d-flex justify-content-center align-items-center custom-select-container" style="display: flex; flex-direction: column;">
-        <div class="col-md-6"> 
+        <div class="col-md-6" style="margin-bottom: 20px;"> 
             <select id="tipoIngresso" class="form-select" aria-label="Default select example" style="background-color: #c2c2c2; font-family: 'Courier New', Courier, monospace; font-size: 30px; text-transform: uppercase; opacity: 80%; box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.2); text-align: center;">
                 <option value="" disabled selected>Selecione uma opção</option>
                 <option value="100">INTEIRA</option>
@@ -112,10 +112,10 @@
                 </div>
             </div>
         </div>
-        <button class="botaomodal" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Prosseguir pagamento</button>
+        <button class="botaomodal btn btn-lg btn-success" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Prosseguir pagamento</button>
 
         <!-- Seção para mostrar os detalhes do pagamento -->
-        <div id="detalhesPagamento" style="margin-top: 100px; color: black; text-transform: uppercase; background-color: #c2c2c2; opacity: 95%; border-radius: 20px; text-align: center; box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.2); padding: 10px;">
+        <div id="detalhesPagamento" style="margin-top: 100px; color: black; text-transform: uppercase; background-color: #c2c2c2; opacity: 95%; border-radius: 20px; text-align: center; box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.2); padding: 10px; border: 2px solid rgb(191, 211, 17);">
             <h4>Carrinho de ingressos</h4>
         </div>
     </div>
@@ -123,38 +123,7 @@
     <br>
     
 
-    <!-- Rodapé -->
-    <footer class="bg-success text-white py-3 mt-auto">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-8 mx-auto">
-                    <h3>Fique por dentro das novidades!</h3>
-                    <form>
-                        <div class="form-group mb-3">
-                            <input type="email" class="form-control" placeholder="Insira seu email">
-                        </div>
-                        <button type="submit" class="btn btn-light">Inscrever-se</button>
-                    </form>
-                </div>
-            </div>
-            <div class="row text-center">
-                <div class="col-md-12">
-                    <div class="mt-5">
-                        <a href="#" class="text-white mr-3 float-md-right"><i class="fab fa-facebook-f fa-2x"></i></a>
-                        <a href="#" class="text-white mr-3 float-md-right"><i class="fab fa-instagram fa-2x"></i></a>
-                        <a href="https://wa.me/1234567890" class="text-white float-md-right"><i class="fab fa-whatsapp fa-2x"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="row text-center">
-                <div class="col-md-12">
-                    <p>&copy; 2022 Greenspot. Todos direitos reservados.</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scripts JavaScript -->
+   
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
     <script src="../js/ingressos.js"></script>

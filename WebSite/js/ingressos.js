@@ -85,6 +85,7 @@ function adicionarDetalhesPagamento() {
         <button class="btn btn-danger" onclick="confirmarCancelamentoCompra('${compraId}')">Cancelar Compra</button>
         <div id="codigo-barra-${compraId}" style="display: none;">
             <svg id="barcode-${compraId}"></svg>
+            <p>Status: <span id="status-${compraId}">Ingresso inválido</span></p>
         </div>
     `;
     detalhesPagamento.appendChild(novoDetalhe);
@@ -95,16 +96,19 @@ function adicionarDetalhesPagamento() {
         displayValue: true,
         fontSize: 20
     });
+
+    // Validar ingresso ao ler o código de barras
+    validarIngresso(compraId);
 }
 
-// Função para visualizar o código de barras
-function visualizarCodigoBarra(compraId) {
-    var codigoBarra = document.getElementById(`codigo-barra-${compraId}`);
-    if (codigoBarra.style.display === "none") {
-        codigoBarra.style.display = "block";
-    } else {
-        codigoBarra.style.display = "none";
-    }
+// Função para validar o ingresso ao ler o código de barras
+function validarIngresso(compraId) {
+    // Simulação de ingresso válido após 3 segundos
+    setTimeout(function() {
+        var statusElement = document.getElementById(`status-${compraId}`);
+        statusElement.textContent = "Ingresso válido";
+        statusElement.style.color = "green";
+    }, 3000);
 }
 
 // Função para confirmar o cancelamento da compra
@@ -119,6 +123,16 @@ function confirmarCancelamentoCompra(compraId) {
 function cancelarCompra(compraId) {
     var compra = document.getElementById(compraId);
     compra.remove();
+}
+
+// Função para visualizar o código de barras
+function visualizarCodigoBarra(compraId) {
+    var codigoBarra = document.getElementById(`codigo-barra-${compraId}`);
+    if (codigoBarra.style.display === "none") {
+        codigoBarra.style.display = "block";
+    } else {
+        codigoBarra.style.display = "none";
+    }
 }
 
 // Event listener para atualizar o valor do ingresso quando a seleção mudar
