@@ -16,16 +16,15 @@ body {
 #home {
     height: 100vh;
     background-image: url('../img/tree.jpg');
-    opacity: 60%;
+    opacity: 75%;
+    color: black;
     background-size: cover;
     background-attachment: fixed;
-    color: #ffffff;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     text-align: center;
     padding-top: 70px;
     justify-content: center;
   }
-  
 
 .titulo-conhecer {
     color: #181a19;
